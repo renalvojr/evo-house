@@ -9,7 +9,7 @@ Gerador de plantas baixas para uma casa de 2 andares e 1 laje.
 ## Instalação
 
 - Certifique-se de que tem o [Poetry](https://python-poetry.org/docs/) instalado
-- Clone o repositório: `git clone https://github.com/ThiagoORuby/infero.git`
+- Clone o repositório: `git clone https://github.com/renalvojr/evo-house.git`
 - Rode os comandos do poetry: `poetry install` e `poetry shell`
 
 ## Como Usar ?
