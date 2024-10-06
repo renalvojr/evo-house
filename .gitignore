@@ -1,0 +1,4 @@
+poetry.lock
+__pycache__**
+ground_floor**
+first_floor**

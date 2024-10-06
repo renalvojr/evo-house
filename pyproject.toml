@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "evo-house-project"
+version = "0.1.0"
+description = ""
+authors = ["ThiagoORuby <trs@ic.ufal.br>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+matplotlib = "^3.9.2"
+pygraphviz = "^1.14"
+scipy = "^1.14.1"
+tqdm = "^4.66.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
