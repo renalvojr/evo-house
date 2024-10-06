@@ -18,4 +18,14 @@ Gerador de plantas baixas para uma casa de 2 andares e 1 laje.
 python -m evo_house
 ```
 
-![](example.png)
+![](src/example.png)
+
+## Resultados
+
+#### Resultado Andar Térreo
+
+![](src/output_ground.gif)
+
+#### Resultado 1º Andar
+
+![](src/output_first.gif)
