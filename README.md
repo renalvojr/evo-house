@@ -38,8 +38,13 @@ Inicialmente, é determinada a área do cômodo, **aleatoriamente**,
 seguindo os limites para o tipo do cômodo, bem como a proporção entre
 altura e largura, de modo que:
 
-$$ width = (area \cdot proprotion)^2$$
-$$ height = \dfrac{area}{width}$$
+$$
+width = (area \cdot proprotion)^2
+$$
+
+$$
+height = \dfrac{area}{width}
+$$
 
 Em seguida, é determinada a posição (canto inferior esquerdo) do cômodo,
 sendo determinada aleatoriamente entre o menor ponto da região da casa e
@@ -103,7 +108,8 @@ do andar.
 
 Dados dois retângulos A, B, definidos:
 
-$A = (x_A, y_A, width_A, height_A)\\$
+$A = (x_A, y_A, width_A, height_A)$
+
 $B = (x_B, y_B, width_B, height_B)$
 
 Então há colisão quando:
