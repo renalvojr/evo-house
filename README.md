@@ -310,8 +310,67 @@ mantendo sempre o mesmo tamanho.
 
 ### Estrutura do Algoritmo
 
-- Mutação variável (diversidade)
-- `pos_factor` e `area_factor` variaveis (penalidades)
+```
+Inicialização da população inicial
+Cálculo do fitness para a população inicial
+EM CADA geração, FAÇA:
+    elites <- 10% melhores indivíduos da população
+    new_pop <- filhos mutados de indivíduos da população
+    população <- elites + new_pop
+    recalcula fitness para população
+    best_fitness <- melhor fitness da geração
+    best_fitnesses (list) <- armazena best_fitness
+    SE geração atual % 20 = 0 ENTÃO:
+        ip <- penalidade de interseção
+        sp <- penalidade de setores
+        cp <- penalidade de circulação
+        fp <- penalidade de fluxo
+        SE ip, sp ou fp alta ENTÃO:
+            pos_factor <- incrementado até o limite
+            area_factor <- incrementado até o limite
+            diversity <- desvio padrão de best_fitnesses
+        SENÃO:
+            pos_factor <- decrementado até o limite
+            area_factor <- decrementado até o limite
+            diversity <- valor fixo alto
+        best_fitnesses <- esvaziada
+
+    SE diversity < 10 ENTÃO:
+        mr <- incrementado até o limite
+    SENÃO:
+        mr <- variação linear associada a geração
+
+    SE best_fitness < 25:
+        PARA
+```
+
+#### Mutação variável
+
+A mutação varia com base na diversidade (`diversity`) dos melhores fitness
+das últimas 20 gerações e na existência de problemas a serem resolvidos
+(penalidades altas)
+
+```python
+if diversity < 10:
+    mr = min(mr + 0.01, mutation_rate)
+else:
+    mr = max(mutation_rate * (1 - gen_idx / generations), 0.1)
+```
+
+#### `pos_factor` e `area_factor` variáveis
+
+Os fatores que influenciam no deslocamento e variação da área dos
+cômodos varia com base nas penalidades, aumentando quando altas e
+diminuindo quando baixas
+
+```python
+if ip >= 100 or sp >= 30 or fp > 0:
+    pos_factor = min(pos_factor + change_factor, 5)
+    area_factor = min(area_factor + (change_factor / 1.5), 5)
+else:
+    pos_factor = max(pos_factor - change_factor, 1 / 50)
+    area_factor = max(area_factor - (change_factor / 1.5), 1 / 10)
+```
 
 ## Resultados
 
