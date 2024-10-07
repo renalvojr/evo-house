@@ -85,6 +85,8 @@ cômodo é representado através de retângulos, com a informação do nome e á
 bem como a janela (círculo verde) e a porta (X amarelo). A escada tem formato próprio,
 seguindo a representação em plantas baixas, com sua entrada (X vermelho).
 
+![representação](src/blueprint.png)
+
 ### Adaptação
 
 A função de adaptação (_fitness_) é definida através de 4 verificações:
@@ -125,7 +127,9 @@ Consiste na penalização referente a distância entre cômodos pertencentes a u
 mesmo setor (social, serviço ou privativo). A distância dois a dois entre os cômodos
 de um mesmo setor é calculada e somada, objetivando-se a minimização da mesma
 
-INSERIR IMAGEM AQUI
+<center>
+<img src="src/setores.png" alt="setorização" width="60%"/>
+</center>
 
 ##### Distância entre Cômodos
 
@@ -139,8 +143,6 @@ representa a maior distância entre as distâncias presentes nas laterais dos c�
 
   return max(horizontal_dis, vertical_dis)
 ```
-
-INSERIR IMAGEM AQUI
 
 #### Circulação
 
@@ -172,7 +174,9 @@ Para verificação da presença de um cômodo no caminho entre outros dois, é
 verificada a colisão dos demais cômodos com a região retângular mínima definida
 entre os dois cômodos
 
-INSERIR IMAGEM AQUI
+<center>
+<img src="src/circulacao.png" alt="circulação" width="60%"/>
+</center>
 
 #### Fluxo
 
@@ -183,6 +187,10 @@ dos cômodos e $A$ as conexões entre a porta de um cômodo e a lateral de outro
 - $G$ é conexo: é possível transitar por todos os cômodos;
 - $N(v_{none}) = 0$: não há cômodos com porta para o vazio;
 - Cômodos de mesmo setor são vizinhos.
+
+<center>
+  <img src="src/house_graph.png" alt="grafo" width="60%"></img> 
+</center>
 
 ### Operações Genéticas
 
@@ -200,7 +208,9 @@ child2 = floor2[:point1] + floor1[point1:point2] + floor2[point2:]
 ...
 ```
 
-INSERIR IMAGEM AQUI
+<center>
+  <img src="src/cruzamento.png" alt="cruzamento" width="60%"></img> 
+</center>
 
 #### Mutação
 
@@ -299,6 +309,9 @@ de pais é escolhido e são feitos cruzamentos para preencher os 90% da nova pop
 mantendo sempre o mesmo tamanho.
 
 ### Estrutura do Algoritmo
+
+- Mutação variável (diversidade)
+- `pos_factor` e `area_factor` variaveis (penalidades)
 
 ## Resultados
 
