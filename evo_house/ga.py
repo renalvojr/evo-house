@@ -117,4 +117,4 @@ def floor_GA(
         tqdm.write(f"Encontrado!!! Gen: {gen_idx} | {best_fitness = :.2f}\n")
         best_floor.draw(save=True, filename=f"{folder_name}/gen_{gen_idx}.png")
 
-    return best_floor, best_fitness
+    return best_floor, best_fitness, gen_idx

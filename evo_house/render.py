@@ -5,6 +5,7 @@ from scipy.spatial import ConvexHull
 from evo_house.representation.floor import Floor
 from evo_house.utils import get_room_vertices
 import numpy as np
+from PIL import Image
 
 
 def render_graph(graph: dict[str, set[str]], file_path: str, prog: str):
@@ -82,3 +83,21 @@ def render_floor(floor: Floor, hull_points, filename: str):
 
     plt.savefig(filename)
     plt.close()
+
+
+def generate_gif(images_folder: str, last_gen: int, render_filepath: str):
+    images = [
+        Image.open(f"{images_folder}/gen_{i}.png") for i in range(0, last_gen + 1, 10)
+    ]
+    images.append(Image.open(f"{images_folder}/gen_{last_gen}.png"))
+
+    for _ in range(15):
+        images.append(Image.open(render_filepath))
+
+    images[0].save(
+        f"{images_folder}/output.gif",
+        save_all=True,
+        append_images=images[1:],
+        duration=150,
+        loop=0,
+    )
