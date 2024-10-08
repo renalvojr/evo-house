@@ -39,7 +39,7 @@ seguindo os limites para o tipo do cômodo, bem como a proporção entre
 altura e largura, de modo que:
 
 $$
-width = (area \cdot proprotion)^2
+width = \sqrt{area \cdot proprotion}
 $$
 
 $$
